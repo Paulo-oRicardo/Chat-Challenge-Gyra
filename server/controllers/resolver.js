@@ -7,9 +7,9 @@ module.exports = {
   },
 
   Mutation: {
-    createChat: (root, { content, from }, { pubsub }) =>
-      Chat.create({ content, from }),
-    //pubsub.publish(CHAT_CHANNEL, { messageSent:  Chat.create({content, from})});
+    createChat: (root, { content, user }, { pubsub }) =>
+      Chat.create({ content, user }),
+    //pubsub.publish(CHAT_CHANNEL, { messageSent:  Chat.create({content, user})});
   },
   Subscription: {
     messageSent: {

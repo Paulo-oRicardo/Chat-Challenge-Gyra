@@ -1,7 +1,8 @@
+import Chat from './Chat'
 function App() {
   return (
     <div className="App">
-      <h1>Aqui esta</h1>
+      <Chat />
     </div>
   );
 }
