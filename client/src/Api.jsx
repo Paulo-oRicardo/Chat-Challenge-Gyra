@@ -2,17 +2,16 @@ import {
   ApolloClient,
   InMemoryCache,
 } from "@apollo/client";
-import { WebSocketLink } from '@apollo/client/link/ws';
+// import { WebSocketLink } from '@apollo/client/link/ws';
 
-const link = new WebSocketLink({
-  uri: 'ws://localhost:4000/',
-  options: {
-    reconnect: true
-  }
-});
+// const link = new WebSocketLink({
+//   uri: 'ws://chat-challenge-gyra.herokuapp.com//',
+//   options: {
+//     reconnect: true
+//   }
+// });
 const client = new ApolloClient({
-  link,
-  uri: 'http://localhost:4000/',
+  uri: 'https://chat-challenge-gyra.herokuapp.com/',
   cache: new InMemoryCache()
 });
 
