@@ -24,6 +24,6 @@ const server = new GraphQLServer({
   context: { pubsub },
 });
 
-server.start(process.env.Port || 4000, () =>
+server.start(process.env.PORT || 4000, () =>
   console.log("Server is running on localhost:4000")
 );
