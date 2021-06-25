@@ -1,5 +1,5 @@
-const { GraphQLServer, PubSub } = require("graphql-yoga");
 const dotenv = require("dotenv");
+const { GraphQLServer, PubSub } = require("graphql-yoga");
 const path = require("path");
 const resolvers = require("../controllers/resolver");
 const connectDB = require("./bd");
