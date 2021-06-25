@@ -2,20 +2,10 @@ const { GraphQLServer, PubSub } = require("graphql-yoga");
 const dotenv = require("dotenv");
 const path = require("path");
 const resolvers = require("../controllers/resolver");
-const mongoose = require("mongoose");
+const connectDB = require("./bd");
 dotenv.config();
-mongoose
-  .connect(process.env.MONGO_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-  })
-  .then(() => {
-    console.log("Conexão com mongodb, realizada com sucesso!");
-  })
-  .catch((erro) => {
-    console.log(erro + "Erro: Conexão com mongodb não realizada com sucesso!");
-  });
+
+connectDB();
 const pubsub = new PubSub();
 
 const server = new GraphQLServer({
