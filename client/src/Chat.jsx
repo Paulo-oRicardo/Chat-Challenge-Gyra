@@ -9,13 +9,13 @@ import {
 import {Container, Row, Col, FormInput,Button} from  'shards-react'
 
 const GET_MESSAGES = gql`
-  query {
-    chats {
-      id
-      user
-      content
-      createdAt
-    }
+  query{
+  chats{
+    id 
+    user
+    content
+    createdAt
+  }
   }`;
 
 const POST_MESSAGES = gql`
@@ -25,15 +25,14 @@ mutation ($user:String!, $content: String!){
   }
 }`;
 const Messages = ({user})=>{
-  const { data } = useQuery(GET_MESSAGES);
+  const { data } = useQuery(GET_MESSAGES, {pollInterval:500});
   if(!data){
     return "no value"
   }
-
     return (
       <>
-      {data.chats.map(({id, user: messageUser, content, createdAt})=>(
-        <div
+      {data.chats.map(({id, user: messageUser, content})=>(
+        <div 
           style={{
             display: "flex",
             justifyContent: user === messageUser ? "flex-end" : "flex-start",
@@ -91,6 +90,7 @@ const Chat = () => {
        content:'',
      })
    }
+ 
   return (
     <Container> 
       <Messages user={person.user} />
@@ -127,6 +127,7 @@ const Chat = () => {
         </Col>
       </Row>
     </Container>
+   
   )}
  const Apollo = () => (
   <ApolloProvider client={Client}>

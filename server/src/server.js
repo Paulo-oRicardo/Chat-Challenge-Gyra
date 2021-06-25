@@ -1,21 +1,27 @@
-const { GraphQLServer } =  require('graphql-yoga');
-const path = require('path')
-const resolvers =require('../controllers/resolver')
-const mongoose = require('mongoose');
+const { GraphQLServer, PubSub } = require("graphql-yoga");
+require("dotenv").config();
+const path = require("path");
+const resolvers = require("../controllers/resolver");
+const mongoose = require("mongoose");
 
-mongoose.connect('mongodb://localhost:27017/chat', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useCreateIndex: true
-}).then(()=>{
-   console.log("Conexão com mongodb, realizada com sucesso!")
-}).catch(erro =>{
-   console.log(erro+"Erro: Conexão com mongodb não realizada com sucesso!")
-});
+mongoose
+  .connect(process.env.MONGO_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+  })
+  .then(() => {
+    console.log("Conexão com mongodb, realizada com sucesso!");
+  })
+  .catch((erro) => {
+    console.log(erro + "Erro: Conexão com mongodb não realizada com sucesso!");
+  });
+const pubsub = new PubSub();
 
 const server = new GraphQLServer({
-  typeDefs:path.resolve(__dirname, 'schema.graphql'),
-  resolvers
+  typeDefs: path.resolve(__dirname, "schema.graphql"),
+  resolvers,
+  context: { pubsub },
 });
 
-server.start(() => console.log('Server is running on localhost:4000'))
+server.start(() => console.log("Server is running on localhost:4000"));
