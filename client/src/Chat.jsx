@@ -25,7 +25,7 @@ mutation ($user:String!, $content: String!){
   }
 }`;
 const Messages = ({user})=>{
-  const { data } = useQuery(GET_MESSAGES, {pollInterval:500});
+  const { data } = useQuery(GET_MESSAGES);
   if(!data){
     return "no value"
   }
