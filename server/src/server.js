@@ -1,9 +1,9 @@
 const { GraphQLServer, PubSub } = require("graphql-yoga");
-require("dotenv").config();
+const dotenv = require("dotenv");
 const path = require("path");
 const resolvers = require("../controllers/resolver");
 const mongoose = require("mongoose");
-
+dotenv.config();
 mongoose
   .connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
