@@ -1,0 +1,43 @@
+.articleContainer {
+  margin-left: 40%;
+  width: 350px;
+  background-color: gray;
+  border-radius: 1em;
+  h2 {
+    text-align: center;
+    padding: 5% 0;
+    color: white;
+  }
+  ul {
+    list-style-type: none;
+
+    li {
+      padding: 1.2rem 0;
+      border-bottom: 1px solid black;
+      &:hover {
+        background-color: #777;
+      }
+      &:first-child {
+        border-top: 1px solid black;
+      }
+      a {
+        margin-left: 7%;
+        font-size: 1.7rem;
+        color: yellow;
+        text-decoration: none;
+        &:hover {
+          border-bottom: 1px solid white;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 750px) {
+  .articleContainer {
+    width: 90%;
+    height: 200px;
+    margin-left: 1%;
+    margin-bottom: 3%;
+    overflow: auto;
+  }
+}

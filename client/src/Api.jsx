@@ -12,7 +12,8 @@ import {
 // });
 const client = new ApolloClient({
   uri: 'https://chat-challenge-gyra.herokuapp.com/',
-  cache: new InMemoryCache()
+  cache: new InMemoryCache(),
+  onError: (e) => { console.log(e) },
 });
 
 export default client;

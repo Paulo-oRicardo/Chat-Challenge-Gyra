@@ -13,6 +13,12 @@ module.exports = {
       return message;
     },
   },
+  Mutation: {
+    deleteMessage: (root, { id }) => {
+      const r = Chat.deleteOne({ _id: id });
+      return r;
+    },
+  },
   Subscription: {
     messageSent: {
       subscribe: (root, args, { pubsub }) => {

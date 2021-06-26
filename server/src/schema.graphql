@@ -2,7 +2,7 @@ type Chat {
   id: ID!
   content: String!
   user: String!
-  createdAt: String!
+  createdAt: String
 }
 type Query {
   chats: [Chat]
@@ -10,7 +10,9 @@ type Query {
 type Mutation {
   createChat(content: String!, user: String!): Chat
 }
-
+type Mutation {
+  deleteMessage(id: ID!): Chat
+}
 type Subscription {
   messageSent: Chat
 }

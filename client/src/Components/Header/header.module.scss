@@ -1,0 +1,13 @@
+.headerContent {
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #333;
+  h1 {
+    color: white;
+    strong {
+      color: red;
+    }
+  }
+}

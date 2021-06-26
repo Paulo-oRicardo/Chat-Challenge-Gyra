@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
-import Client from './Api'
+import Client from '../../Api'
 import {
   ApolloProvider,
   useQuery,
   useMutation,
   gql,
 } from "@apollo/client";
+import styles from "./styles.module.scss"
 import {Container, Row, Col, FormInput,Button} from  'shards-react'
 
 const GET_MESSAGES = gql`
@@ -24,48 +25,50 @@ mutation ($user:String!, $content: String!){
     content
   }
 }`;
+
+const DELETE_MESSAGES = gql`
+mutation ($id:ID!){
+	deleteMessage(id: $id){
+    id
+  }
+}`;
+
 const Messages = ({user})=>{
-  const { data } = useQuery(GET_MESSAGES);
+  const { data } = useQuery(GET_MESSAGES, {pollInterval:500});
+  const [deleteMessage] = useMutation(DELETE_MESSAGES)
   if(!data){
     return "no value"
   }
     return (
       <>
-      {data.chats.map(({id, user: messageUser, content})=>(
-        <div 
+      {data.chats.map(({id, user: messageUser, content, createdAt})=>(
+        <div key={id}
           style={{
             display: "flex",
             justifyContent: user === messageUser ? "flex-end" : "flex-start",
             paddingBottom: "1em",
+            width: "100%",
           }}
         >
+          <div className={styles.userContainer}>
           {user !== messageUser && (
-            <div
-              style={{
-                height:50,
-                width:50,
-                marginRight:"0.5em",
-                border: "2px solid #e5e6ea",
-                borderRadius:25,
-                textAlign:"center",
-                fontSize:'18px',
-                paddingTop:8,
-              }}
-            >
-              {messageUser.slice(0, 2).toUpperCase()}
+            <div className={styles.nomeUser}> 
+              {messageUser.slice(0, 5).toUpperCase()} 
             </div>
           )}
-          
+          <span>{createdAt}</span>
+          </div>
           <div
             style={{
               background: user === messageUser ? "green" : "lightgray",
               color: user === messageUser ? "white" : "black",
               padding:"1em",
               borderRadius: "1em",
-              maxWidth: "60%",
+              maxWidth: "100%",
             }}
+            onDoubleClick={()=>{deleteMessage({variables: {id}})}}
           >
-            {content}
+            <span>{content}</span>
           </div>
         </div>
       ))}
@@ -92,11 +95,12 @@ const Chat = () => {
    }
  
   return (
-    <Container> 
+    <Container className={styles.container} > 
       <Messages user={person.user} />
-      <Row>
+      <Row className={styles.row}>
         <Col xs={2} style={{padding: 0}}>
         <FormInput 
+          className={styles.firstForm}
           label="User"
           value={person.user}
           onChange={(event) => setPerson({
@@ -105,8 +109,9 @@ const Chat = () => {
           })}
         />
         </Col>
-        <Col xs={8}>
+        <Col xs={6}>
         <FormInput 
+          className={styles.secondForm}
           label="Content"
           value={person.content}
           onChange={(event) => setPerson({
@@ -120,8 +125,8 @@ const Chat = () => {
           }}
         />
         </Col>
-        <Col xs={2} style={{padding: 0}}>
-          <Button onClick={()=>onSend()}>
+        <Col xs={4} style={{padding: 0}}>
+          <Button className={styles.button}onClick={()=>onSend()}>
             Send
           </Button>
         </Col>

@@ -1,0 +1,25 @@
+.posHeader {
+  display: grid;
+  grid-template-columns: 5% 95%;
+  background-color: #444;
+  padding-top: 1%;
+  height: 84vh;
+  img {
+    margin-left: 30%;
+    width: 57%;
+    border-radius: 1em;
+  }
+}
+@media screen and (max-width: 750px) {
+  .posHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    img {
+      margin-left: 0;
+      width: 90%;
+      border-radius: 1em;
+    }
+  }
+}
