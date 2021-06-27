@@ -6,7 +6,8 @@
 2.  [O que faz](https://github.com/Paulo-oRicardo/Chat-Challenge-Gyra##O-que-faz)
 3.  [O que é uma API](https://github.com/Paulo-oRicardo/Chat-Challenge-Gyra##O-que-%c3%a9-uma-api)
 4.  [Como está sendo consumida a API](https://github.com/Paulo-oRicardo/Chat-Challenge-Gyra##Como-est%c3%a1-sendo-consumida-a-API)
-5.  [Como baixar e rodar o projeto](https://github.com/Paulo-oRicardo/Chat-Challenge-Gyra##Como-baixar-e-rodar-o-projeto)
+5.  [Heroku](https://github.com/Paulo-oRicardo/Chat-Challenge-Gyra##Heroku)
+6.  [Como baixar e rodar o projeto](https://github.com/Paulo-oRicardo/Chat-Challenge-Gyra##Como-baixar-e-rodar-o-projeto)
 </details>
 
 ## 🖼️ O que é o projeto
@@ -22,6 +23,10 @@
    
 ## 🎲 Como está sendo consumida a API
    A API utilizada contém as mensagem e o usúario que a mandou, as mensagens aparecem no chat, conforme o nickname que está sendo utilizado 
+   
+## Heroku
+  Heroku é uma plataforma que disponibiliza em nuvem a hospedagem de uma aplicação back-end.<br>
+[Acesse a API](https://chat-challenge-gyra.herokuapp.com/) para ver seu funcionamento no mesmo.
    
 ## 💻 Como Baixar e rodar o Projeto
    1. 📌 Clone o projeto
