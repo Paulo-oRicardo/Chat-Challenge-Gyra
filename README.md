@@ -32,7 +32,7 @@
    1. 📌 Clone o projeto
 
 ```Shell
-git clone https://github.com/Paulo-oRicardo/Bons-_Drinks.git
+git clone https://github.com/Paulo-oRicardo/Chat-Challenge-Gyra.git
 ```
 
 2. 📌 Em seu terminal. Instale as dependências
