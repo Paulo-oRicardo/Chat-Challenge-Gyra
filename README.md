@@ -1,4 +1,5 @@
 # 🗒️ [Chat Challenge Gyra+](https://chat-challenge.netlify.app/)
+  <img src="https://github.com/Paulo-oRicardo/Chat-Challenge-Gyra/blob/main/client/public/picture-project.JPG" alt="Foto do projeto">
 
 ## 📖 Sumário
 
