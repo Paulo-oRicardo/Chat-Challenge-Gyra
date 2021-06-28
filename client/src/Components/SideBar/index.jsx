@@ -6,8 +6,8 @@ const SideBar = () => {
     <article className={styles.articleContainer}>
       <h2>Chats</h2>
       <ul>
-        <li><Link to="chat1">Chat 1</Link></li>
-        <li><Link>Chat 2</Link></li>
+        <Link to="chat1"><li>Chat 1</li></Link>
+        <Link><li>Chat 2</li></Link>
       </ul>
     </article>
   )

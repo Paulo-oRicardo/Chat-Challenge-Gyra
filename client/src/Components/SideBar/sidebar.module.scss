@@ -10,23 +10,19 @@
   }
   ul {
     list-style-type: none;
+    border-top: 1px solid black;
+    a {
+      text-decoration: none;
+      li {
+        padding: 0.6rem 0 0.6rem 2rem;
+        border-bottom: 1px solid black;
 
-    li {
-      padding: 1.2rem 0;
-      border-bottom: 1px solid black;
-      &:hover {
-        background-color: #777;
-      }
-      &:first-child {
-        border-top: 1px solid black;
-      }
-      a {
-        margin-left: 7%;
         font-size: 1.7rem;
         color: yellow;
         text-decoration: none;
         &:hover {
-          border-bottom: 1px solid white;
+          color: white;
+          background-color: #777;
         }
       }
     }
