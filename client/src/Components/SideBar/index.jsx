@@ -7,7 +7,7 @@ const SideBar = () => {
       <h2>Chats</h2>
       <ul>
         <Link to="chat1"><li>Chat 1</li></Link>
-        <Link><li>Chat 2</li></Link>
+        <Link to="chat2"><li>Chat 2</li></Link>
       </ul>
     </article>
   )
